@@ -10,6 +10,9 @@ cd backend
 npm install 
 npm start
 
+pip install -r requirements.txt
+python app.py 
+
 cd fitness-scheduler
 npm install
 ng serve
