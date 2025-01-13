@@ -1,0 +1,30 @@
+<div>
+  <h1>Add Class</h1>
+  <form (ngSubmit)="onSubmit()" #classForm="ngForm">
+    <mat-form-field>
+      <input matInput placeholder="Name" name="name" [(ngModel)]="classData.name" required>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Trainer" name="trainer" [(ngModel)]="classData.trainer" required>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-select placeholder="Category" name="category" [(ngModel)]="classData.category" required>
+        <mat-option value="Yoga">Yoga</mat-option>
+        <mat-option value="Cardio">Cardio</mat-option>
+        <mat-option value="Strength Training">Strength Training</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput type="number" placeholder="Duration (minutes)" name="duration" [(ngModel)]="classData.duration" required min="1">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput type="number" placeholder="Capacity" name="capacity" [(ngModel)]="classData.capacity" required min="1">
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" type="submit" [disabled]="!classForm.valid">Add Class</button>
+  </form>
+</div>

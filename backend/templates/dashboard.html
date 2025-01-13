@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fitness Attendance Analytics</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 20px 0;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Fitness Attendance Analytics Dashboard</h1>
+    <h2>Average Attendance by Category</h2>
+    <img src="/static/avg_attendance.png" alt="Average Attendance by Category">
+
+    <h2>Top 3 Classes by Attendance</h2>
+    <table>
+        <tr>
+            <th>Class Name</th>
+            <th>Date</th>
+            <th>Attendees</th>
+            <th>Category</th>
+        </tr>
+        {% for row in top_classes %}
+        <tr>
+            <td>{{ row['class_name'] }}</td>
+            <td>{{ row['date'] }}</td>
+            <td>{{ row['attendees'] }}</td>
+            <td>{{ row['category'] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <h2>Bottom 3 Classes by Attendance</h2>
+    <table>
+        <tr>
+            <th>Class Name</th>
+            <th>Date</th>
+            <th>Attendees</th>
+            <th>Category</th>
+        </tr>
+        {% for row in bottom_classes %}
+        <tr>
+            <td>{{ row['class_name'] }}</td>
+            <td>{{ row['date'] }}</td>
+            <td>{{ row['attendees'] }}</td>
+            <td>{{ row['category'] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

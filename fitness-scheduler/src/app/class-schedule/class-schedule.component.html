@@ -1,0 +1,40 @@
+<div>
+  <h1>Class Schedule</h1>
+  <table mat-table [dataSource]="classes" class="mat-elevation-z8">
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef> Name </th>
+      <td mat-cell *matCellDef="let class"> {{class.name}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="trainer">
+      <th mat-header-cell *matHeaderCellDef> Trainer </th>
+      <td mat-cell *matCellDef="let class"> {{class.trainer}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="category">
+      <th mat-header-cell *matHeaderCellDef> Category </th>
+      <td mat-cell *matCellDef="let class"> {{class.category}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="duration">
+      <th mat-header-cell *matHeaderCellDef> Duration (min) </th>
+      <td mat-cell *matCellDef="let class"> {{class.duration}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="capacity">
+      <th mat-header-cell *matHeaderCellDef> Capacity </th>
+      <td mat-cell *matCellDef="let class"> {{class.capacity}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef> Actions </th>
+      <td mat-cell *matCellDef="let class">
+        <button mat-button (click)="editClass(class)">Edit</button>
+        <button mat-button color="warn" (click)="deleteClass(class._id)">Delete</button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div>
